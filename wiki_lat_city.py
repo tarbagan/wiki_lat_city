@@ -58,8 +58,6 @@ def lat_lot():
             cit["info"] = ""
         except wikipedia.exceptions.PageError as e:
             cit["info"] = ""
-        except wikipedia.exceptions.UserWarning as e:
-            cit["info"] = ""
         goroda.append(cit)
         print(cit)
     return goroda
