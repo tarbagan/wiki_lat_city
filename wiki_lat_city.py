@@ -5,18 +5,14 @@ import time
 import wikipedia
 import csv
 
-access_token = "VK_TOKEN"
-count1000 = "count1000"
-versionvk = "v=5.52"
-
 def get_city(city=True):
     getCitiesURL = {}
     getCitiesURL["vk_getCities"] = "https://api.vk.com/method/database.getCities.json?"
     getCitiesURL["country_id"] = "country_id=1" #ID Country
     getCitiesURL["region_id"] = "region_id=1157049" #ID Region 1157049 - Tuva Republic
-    getCitiesURL["count"] = count1000
-    getCitiesURL["token"] = access_token
-    getCitiesURL["version_vkapi"] = versionvk
+    getCitiesURL["count"] = "count1000"
+    getCitiesURL["token"] = "VK_TOKEN"
+    getCitiesURL["version_vkapi"] = "v=5.52"
     try:
         urlcity = ("&".join(getCitiesURL.values()))
         response = urlopen(urlcity,timeout=1)
@@ -73,4 +69,3 @@ def record():
             writer.writerow({'id': reccit["id"], 'title': reccit["title"], 'area': reccit["area"], 'region': reccit["region"], 'latitude': reccit["latitude"], 'longitude': reccit["longitude"],'info': reccit["info"]})
 
 record()
-
